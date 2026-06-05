@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pet-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1px) scale(1.02); }
+}
+
+.pet-breathe {
+  animation: pet-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes pet-head-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes pet-ear-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  40% { transform: rotate(7deg); }
+  70% { transform: rotate(-5deg); }
+}
+
+@keyframes pet-tail-wag {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(18deg); }
+  40% { transform: rotate(-18deg); }
+  60% { transform: rotate(16deg); }
+  80% { transform: rotate(-16deg); }
+}
+
+@keyframes pet-alert {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-2px); }
+  30% { transform: translateX(2px); }
+  45% { transform: translateX(-2px); }
+  60% { transform: translateX(2px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.pet-head {
+  transform-origin: 12px 9px;
+  animation: pet-head-wobble 2.2s ease-in-out infinite;
+}
+
+.pet-ear-left {
+  transform-origin: 8px 6.5px;
+  animation: pet-ear-wiggle 2.8s ease-in-out infinite;
+}
+
+.pet-ear-right {
+  transform-origin: 16px 6.5px;
+  animation: pet-ear-wiggle 3.1s ease-in-out infinite;
+}
+
+.pet-tail {
+  transform-origin: 18.3px 16.2px;
+  animation: pet-tail-wag 0.9s ease-in-out infinite;
+}
+
+.pet-warning {
+  animation: pet-alert 0.35s ease-in-out infinite;
+}
+
+@keyframes pet-img-wobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-1px) rotate(-2.5deg); }
+  50% { transform: translateY(-2px) rotate(0deg); }
+  75% { transform: translateY(-1px) rotate(2deg); }
+}
+
+@keyframes pet-img-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pet-img-warning {
+  0% { transform: translateX(0) rotate(0deg); }
+  20% { transform: translateX(-2px) rotate(-1deg); }
+  40% { transform: translateX(2px) rotate(1deg); }
+  60% { transform: translateX(-2px) rotate(-1deg); }
+  80% { transform: translateX(2px) rotate(1deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.pet-img {
+  object-fit: contain;
+  image-rendering: auto;
+  transform-origin: 50% 65%;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.16));
+}
+
+.pet-img-idle {
+  animation: pet-img-wobble 2.4s ease-in-out infinite, pet-img-float 2.9s ease-in-out infinite;
+}
+
+.pet-img-pause {
+  animation: pet-img-float 3.6s ease-in-out infinite;
+  opacity: 0.92;
+}
+
+.pet-img-warning {
+  animation: pet-img-warning 0.35s ease-in-out infinite;
+}
